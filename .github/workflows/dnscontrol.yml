@@ -1,2 +1,9 @@
-- name: DNSControl Action
-  uses: koenrh/dnscontrol-action@v3.8.0
+on: push
+name: deploy
+jobs:
+  dnscontrol:
+    name: Deploy DNS Config
+    runs-on: ubuntu-latest
+    steps:
+      - name: DNSControl Action
+        uses: koenrh/dnscontrol-action@v3.8.0
