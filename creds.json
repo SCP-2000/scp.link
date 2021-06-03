@@ -1,0 +1,5 @@
+{
+  "gandi": {
+    "apikey": "$GANDI_API_KEY"
+  }
+}
