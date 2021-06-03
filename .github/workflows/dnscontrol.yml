@@ -1,9 +1,31 @@
-on: push
-name: deploy
+name: check
+on: pull_request
 jobs:
-  dnscontrol:
-    name: Deploy DNS Config
+  check:
     runs-on: ubuntu-latest
     steps:
-      - name: DNSControl Action
-        uses: koenrh/dnscontrol-action@v3.8.0
+      - uses: actions/checkout@v2
+      - name: dnscontrol check
+        uses: koenrh/dnscontrol-action@v3
+        with:
+          args: check
+          config_file: dnsconfig.js
+---
+name: push
+on:
+  push:
+    branches:
+      - master
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: dnscontrol push
+        uses: koenrh/dnscontrol-action@v3
+        env:
+          GANDI_API_KEY: ${{ secrets.GANDI_API_KEY }}
+        with:
+          args: push
+          config_file: dnsconfig.js
+          creds_file: creds.json
