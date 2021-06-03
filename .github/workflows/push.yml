@@ -1,17 +1,3 @@
----
-name: check
-on: pull_request
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: dnscontrol check
-        uses: koenrh/dnscontrol-action@v3
-        with:
-          args: check
-          config_file: dnsconfig.js
----
 name: push
 on:
   push:
