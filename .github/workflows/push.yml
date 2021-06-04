@@ -5,6 +5,7 @@ on:
       - master
 jobs:
   push:
+    environment: prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
