@@ -7,5 +7,6 @@ D("scp.link", REG_NONE, DnsProvider(GANDI),
     NS("o", "ns2.he.net."),
     NS("o", "ns3.he.net."),
     NS("o", "ns4.he.net."),
-    NS("o", "ns5.he.net.")
+    NS("o", "ns5.he.net."),
+    A("vanilla", "159.65.135.68")
 );
